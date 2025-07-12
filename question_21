@@ -1,0 +1,11 @@
+public class Introduction {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+
+        String name = "Tsering Phurbu";
+        int age = 20;
+        String favoriteLanguage = "Java";
+
+        System.out.println("My name is " + name + ", I am " + age + " years old, and my favorite programming language is " + favoriteLanguage + ".");
+    }
+}
