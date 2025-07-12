@@ -1,0 +1,23 @@
+public class PrimitiveDemo {
+    public static void main(String[] args) {
+        int myInt = 100;
+        float myFloat = 25.75f;
+        double myDouble = 123.456;
+        char myChar = 'X';
+        boolean myBoolean = true;
+
+        System.out.println("Integer: " + myInt);
+        System.out.println("Float: " + myFloat);
+        System.out.println("Double: " + myDouble);
+        System.out.println("Character: " + myChar);
+        System.out.println("Boolean: " + myBoolean);
+
+        int floatToInt = (int) myFloat;
+        System.out.println("Original float: " + myFloat);
+        System.out.println("Converted to int: " + floatToInt);
+
+        double intToDouble = myInt;
+        System.out.println("Original int: " + myInt);
+        System.out.println("Converted to double: " + intToDouble);
+    }
+}
