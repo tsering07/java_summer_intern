@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+enum Day {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+}
+
+public class EnumAndWrapperDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a day of the week: ");
+        String input = scanner.next().toUpperCase();
+
+        try {
+            Day day = Day.valueOf(input);
+            switch (day) {
+                case MONDAY:
+                    System.out.println("Start of the work week!");
+                    break;
+                case TUESDAY:
+                    System.out.println("Keep going strong!");
+                    break;
+                case WEDNESDAY:
+                    System.out.println("Midweek hustle!");
+                    break;
+                case THURSDAY:
+                    System.out.println("Almost there!");
+                    break;
+                case FRIDAY:
+                    System.out.println("Weekend is near!");
+                    break;
+                case SATURDAY:
+                    System.out.println("Relax, it's the weekend!");
+                    break;
+                case SUNDAY:
+                    System.out.println("Recharge for the week ahead!");
+                    break;
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid day entered.");
+        }
+
+        Integer num1 = 10;
+        Integer num2 = 20;
+
+        int sum = num1 + num2;
+        System.out.println("Sum of two Integer objects: " + sum);
+
+        Double d1 = 15.5;
+        double d2 = d1;
+        System.out.println("Auto-unboxed double value: " + d2);
+
+        scanner.close();
+    }
+}
