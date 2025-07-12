@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class AverageMarks {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter marks for Subject 1: ");
+        int subject1 = scanner.nextInt();
+
+        System.out.print("Enter marks for Subject 2: ");
+        int subject2 = scanner.nextInt();
+
+        System.out.print("Enter marks for Subject 3: ");
+        int subject3 = scanner.nextInt();
+
+        float average = (subject1 + subject2 + subject3) / 3.0f;
+
+        System.out.println("Average marks: " + average);
+
+        scanner.close();
+    }
+}
