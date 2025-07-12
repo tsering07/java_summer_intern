@@ -1,0 +1,17 @@
+public class TypeConversion {
+    public static void main(String[] args) {
+        // Convert float to int
+        float myFloat = 7.89f;
+        int convertedInt = (int) myFloat;  // Explicit casting
+
+        System.out.println("Original float value: " + myFloat);
+        System.out.println("Converted int value: " + convertedInt);
+
+        // Convert int to double
+        int myInt = 42;
+        double convertedDouble = myInt;  // Implicit casting
+
+        System.out.println("Original int value: " + myInt);
+        System.out.println("Converted double value: " + convertedDouble);
+    }
+}
