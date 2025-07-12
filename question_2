@@ -1,0 +1,9 @@
+public class AboutMe {
+    public static void main(String[] args) {
+        String name = "Tsering";
+        int age = 20;
+        String favoriteLanguage = "Java";
+
+        System.out.println("My name is " + name + ", I am " + age + " years old, and my favorite programming language is " + favoriteLanguage + ".");
+    }
+}
