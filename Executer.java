@@ -2,30 +2,26 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Executer {
+    private static final Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("🎮 Welcome to the Dice Game!");
-        System.out.print("Enter number of players: ");
-        int n = sc.nextInt();
-        sc.nextLine(); 
 
+        int numberOfPlayers = getIntInput("Enter number of players: ", 1, 100);
         ArrayList<Player> players = new ArrayList<>();
 
-        for (int i = 0; i < n; i++) {
-            System.out.print("Enter name for Player " + (i + 1) + ": ");
-            String name = sc.nextLine();
-            players.add(new Player(name));
+        for (int i = 1; i <= numberOfPlayers; i++) {
+            System.out.print("Enter name for Player " + i + ": ");
+            players.add(new Player(sc.nextLine().trim()));
         }
 
         GameEngine game = new GameEngine(players);
 
         while (true) {
-            System.out.print("\nDo you want to play a round? (1 = Yes / 0 = No): ");
-            int choice = sc.nextInt();
+            int choice = getIntInput("\nDo you want to play a round? (1 = Yes / 0 = No): ", 0, 1);
             if (choice == 1) {
                 game.playRound();
-                game.showResults();
+                game.displayScoreboard();
             } else {
                 System.out.println("👋 Thanks for playing!");
                 break;
@@ -33,5 +29,22 @@ public class Executer {
         }
 
         sc.close();
+    }
+
+    private static int getIntInput(String message, int min, int max) {
+        int input = -1;
+        while (true) {
+            System.out.print(message);
+            if (sc.hasNextInt()) {
+                input = sc.nextInt();
+                sc.nextLine(); 
+                if (input >= min && input <= max) {
+                    return input;
+                }
+            } else {
+                sc.nextLine(); 
+            }
+            System.out.println("❌ Invalid input. Please enter a number between " + min + " and " + max + ".");
+        }
     }
 }

@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class GameEngine {
-    private ArrayList<Player> players;
-    private Dice dice;
+    private final ArrayList<Player> players;
+    private final Dice dice;
 
     public GameEngine(ArrayList<Player> players) {
         this.players = players;
@@ -11,36 +11,36 @@ public class GameEngine {
 
     public void playRound() {
         int highestRoll = 0;
-        Player roundWinner = null;
+        Player winner = null;
         boolean isTie = false;
 
-        System.out.println("\n🎲 Rolling dice...");
+        System.out.println("\n🎲 Rolling the dice...");
 
-        for (Player p : players) {
+        for (Player player : players) {
             int roll = dice.roll();
-            System.out.println(p.showName() + " rolled: " + roll);
+            System.out.println(player.getName() + " rolled: " + roll);
 
             if (roll > highestRoll) {
                 highestRoll = roll;
-                roundWinner = p;
+                winner = player;
                 isTie = false;
             } else if (roll == highestRoll) {
                 isTie = true;
             }
         }
 
-        if (!isTie && roundWinner != null) {
-            roundWinner.incrementWins();
-            System.out.println("🏆 " + roundWinner.showName() + " wins this round!\n");
+        if (!isTie && winner != null) {
+            winner.addWin();
+            System.out.println("🏆 " + winner.getName() + " wins this round!\n");
         } else {
-            System.out.println("🤝 It's a tie! No one wins this round.\n");
+            System.out.println("🤝 It's a tie! No winner this round.\n");
         }
     }
 
-    public void showResults() {
-        System.out.println("📊 Scoreboard:");
-        for (Player p : players) {
-            System.out.println(p.showName() + " has won " + p.showWins() + " rounds");
+    public void displayScoreboard() {
+        System.out.println("\n📊 Current Scoreboard:");
+        for (Player player : players) {
+            System.out.println(player.getName() + ": " + player.getWins() + " wins");
         }
     }
 }

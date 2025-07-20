@@ -1,13 +1,9 @@
 import java.util.Random;
 
 public class Dice {
-    private Random rand;
-
-    public Dice() {
-        rand = new Random();
-    }
+    private final Random rand = new Random();
 
     public int roll() {
-        return rand.nextInt(6) + 1; // 1 to 6
+        return rand.nextInt(6) + 1; // Generates number between 1 and 6
     }
 }
